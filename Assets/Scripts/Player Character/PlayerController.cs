@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     Vector2 playerMovement;
     Animator animator;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,9 +34,11 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = playerVelocity;
 
-        animator.SetInteger("xVelocity", (int)playerVelocity.x);
-        animator.SetInteger("yVelocity", (int)playerVelocity.y);
+        animator.SetInteger("Velocity", (int)playerVelocity.magnitude);
 
-
+        if (playerVelocity.normalized.x < 0) {
+            this.transform.rotation = new Quaternion(1, 180, 0, 0);
+        }
+        else { this.transform.rotation =  Quaternion.identity; }
     }
 }
