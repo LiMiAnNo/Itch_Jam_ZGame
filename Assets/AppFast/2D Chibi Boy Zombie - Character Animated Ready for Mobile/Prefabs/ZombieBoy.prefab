@@ -1522,11 +1522,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae574ed7ca56a0848b38b31e38318007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemCanvas: {fileID: 0}
   target: {fileID: 0}
-  moveSpeed: 2
-  wanderRadius: 5
+  moveSpeed: 0.5
+  wanderRadius: 1.35
   waitTime: 2
-  items: []
+  itemSprites: []
 --- !u!61 &1772822632876316865
 BoxCollider2D:
   m_ObjectHideFlags: 0
