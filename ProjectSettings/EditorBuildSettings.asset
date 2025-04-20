@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 29584dd910083b740a5ded91f920d7b2
+  - enabled: 1
+    path: Assets/Gutty Kreum/Free Japanese City Game Assets/Demo/SampleScene.unity
+    guid: 162a6f38543ad254e952f604bab419ec
+  - enabled: 1
     path: Assets/Scenes/GameLevel.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:

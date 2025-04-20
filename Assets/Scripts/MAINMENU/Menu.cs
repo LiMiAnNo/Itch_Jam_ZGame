@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit(); // for built game
-        Debug.Log("Game Quit!"); // testing in Editor
+        Application.Quit(); 
+        Debug.Log("Game Quit!"); 
     }
 }
