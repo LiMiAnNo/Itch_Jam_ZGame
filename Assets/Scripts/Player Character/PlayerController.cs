@@ -9,29 +9,29 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Vector2 playerMovement;
     Animator animator;
-
-    int health; 
+    
+    //int health; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        health = 100;
-
+        //health = 100;
+       
     }
 
-    void takeDamage(int dmg)
-    {
-        health -= dmg;
+    //void takeDamage(int dmg)
+    //{
+    //    health -= dmg;
 
 
-        animator.SetTrigger("TookDamage");
-        if(health <= 0)
-        {
-            animator.SetBool("Dead",true);
-        }
-    }
+    //    animator.SetTrigger("TookDamage");
+    //    if(health <= 0)
+    //    {
+    //        animator.SetBool("Dead",true);
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     void CharacterMovement()
     {
-        if (health <= 0) { return; }
+        //if (health <= 0) { return; }
         playerMovement.x = Input.GetAxisRaw("Horizontal");
         playerMovement.y = Input.GetAxisRaw("Vertical");
 

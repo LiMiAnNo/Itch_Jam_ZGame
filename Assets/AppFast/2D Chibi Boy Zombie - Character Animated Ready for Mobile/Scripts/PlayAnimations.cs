@@ -122,27 +122,27 @@ namespace NetDinamica.AppFast
             transform.localScale = theScale;
         }
 
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                PlayerInventory player = other.GetComponent<PlayerInventory>();
-                if (player == null || player.carriedItem == null)
-                    return;
+        //void OnTriggerEnter2D(Collider2D other)
+        //{
+        //    if (other.CompareTag("Player"))
+        //    {
+        //        ////PlayerInventory player = other.GetComponent<PlayerInventory>();
+        //        //if (player == null || player.carriedItem == null)
+        //        //    return;
 
-                if (items.Contains(player.carriedItem))
-                {
-                    items.Remove(player.carriedItem);
-                    Debug.Log("Item given: " + player.carriedItem.name);
+        //        //if (items.Contains(player.carriedItem))
+        //        //{
+        //        //    items.Remove(player.carriedItem);
+        //        //    Debug.Log("Item given: " + player.carriedItem.name);
 
-                    // Optional: play animation, sound, or feedback
-                    player.carriedItem = null; // Remove item from player
-                }
-                else
-                {
-                    Debug.Log("This item is not needed.");
-                }
-            }
-        }
+        //        //    // Optional: play animation, sound, or feedback
+        //        //    player.carriedItem = null; // Remove item from player
+        //        //}
+        //        else
+        //        {
+        //            Debug.Log("This item is not needed.");
+        //        }
+        //    }
+        //}
     }
 }
