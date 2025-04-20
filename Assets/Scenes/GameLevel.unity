@@ -518,6 +518,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8588665295161878914, guid: 7f6b932fbdf1dc943848b6f98049ed9d, type: 3}
   m_PrefabInstance: {fileID: 1463466348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &304701578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304701564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413c449cd6abbfc439a5f69256cabc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &331409976
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1005,7 @@ GameObject:
   - component: {fileID: 896130207}
   - component: {fileID: 896130209}
   - component: {fileID: 896130208}
+  - component: {fileID: 896130210}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -2101,6 +2114,81 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &896130210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896130206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d26b26bedd8654d89a3a2d102eace7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Torn Teddy Ear
+  cureUI: {fileID: 0}
+--- !u!1001 &972068265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.4657946
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.4838386
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910287482002788616, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951292266735389428, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_Name
+      value: TornTeddyEar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951292266735389428, guid: c24401d762ad9d84b948d5310357c720, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c24401d762ad9d84b948d5310357c720, type: 3}
 --- !u!1001 &1130354132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2242,6 +2330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hisa Character
       objectReference: {fileID: 0}
+    - target: {fileID: 8588665295161878915, guid: 7f6b932fbdf1dc943848b6f98049ed9d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2252,6 +2344,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8588665295161878915, guid: 7f6b932fbdf1dc943848b6f98049ed9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 304701572}
+    - targetCorrespondingSourceObject: {fileID: 8588665295161878915, guid: 7f6b932fbdf1dc943848b6f98049ed9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 304701578}
   m_SourcePrefab: {fileID: 100100000, guid: 7f6b932fbdf1dc943848b6f98049ed9d, type: 3}
 --- !u!1 &1602272713
 GameObject:
@@ -4496,3 +4591,4 @@ SceneRoots:
   - {fileID: 1463466348}
   - {fileID: 41410031}
   - {fileID: 1130354132}
+  - {fileID: 972068265}
