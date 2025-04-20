@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    private PlayerInventory inventory;
 
     Rigidbody2D rb;
     Vector2 playerMovement;
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         //health = 100;
-       
+        inventory = GetComponent<PlayerInventory>();
+
+
     }
 
     //void takeDamage(int dmg)
@@ -36,9 +39,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       
-
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (inventory != null && inventory.HasItem("Memory Shard"))
+            {
+                FreezeClosestZombie();
+                // Optional: Remove from inventory after one use
+                // inventory.RemoveItem("Memory Shard");
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -74,4 +83,31 @@ public class PlayerController : MonoBehaviour
 
         flipSprite(); 
     }
+
+    void FreezeClosestZombie()
+    {
+        Zombie[] allZombies = Object.FindObjectsByType<Zombie>(FindObjectsSortMode.None);
+
+        if (allZombies.Length == 0) return;
+
+        Zombie closest = null;
+        float minDist = Mathf.Infinity;
+
+        foreach (Zombie z in allZombies)
+        {
+            float dist = Vector2.Distance(transform.position, z.transform.position);
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = z;
+            }
+        }
+
+        if (closest != null)
+        {
+            closest.FreezeZombie();
+            Debug.Log($"Froze {closest.name} with Memory Shard.");
+        }
+    }
+
 }
