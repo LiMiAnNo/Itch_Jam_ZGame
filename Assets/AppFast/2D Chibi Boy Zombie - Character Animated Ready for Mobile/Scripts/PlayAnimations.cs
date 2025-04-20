@@ -1,15 +1,16 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using NUnit.Framework;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine.UI; // <-- Correct for UI components like Image
 
 namespace NetDinamica.AppFast
 {
     public class PlayAnimations : MonoBehaviour
     {
+        public Canvas itemCanvas;
+
         public Transform target; // Player
         public float moveSpeed = 2f;
 
@@ -21,22 +22,35 @@ namespace NetDinamica.AppFast
         private Vector2 wanderTarget;
         private bool isWaiting = false;
 
+        private Image[] itemImages;
         private Animator anim;
         private bool facingRight = true;
         private bool isManualAnim = false;
-        
-        public List<GameObject> items = new List<GameObject>();
+
+        public List<Sprite> itemSprites = new List<Sprite>(); // <-- Use Sprites for UI images
 
         void Start()
         {
             anim = GetComponentInChildren<Animator>();
+            itemCanvas = GetComponentInChildren<Canvas>();
+
+            if (itemCanvas != null)
+            {
+                itemImages = itemCanvas.GetComponentsInChildren<Image>();
+            }
+            else
+            {
+                Debug.LogWarning("Item canvas not found!");
+            }
+
             wanderOrigin = transform.position;
             PickNewWanderPoint();
+
+            ShowNeededItems();
         }
 
         void Update()
         {
-            // Manual animation testing
             isManualAnim = false;
 
             if (Input.GetKeyDown(KeyCode.Alpha1)) { anim.Play("Idle"); isManualAnim = true; }
@@ -46,7 +60,6 @@ namespace NetDinamica.AppFast
             else if (Input.GetKeyDown(KeyCode.Alpha9)) { anim.Play("Die"); isManualAnim = true; }
             else if (Input.GetKeyDown(KeyCode.F)) { Flip(); }
 
-            // AI movement
             if (!isManualAnim)
             {
                 if (target != null)
@@ -64,7 +77,6 @@ namespace NetDinamica.AppFast
         {
             Vector2 direction = targetPos - (Vector2)transform.position;
 
-            // Flip sprite based on X direction
             if (direction.x > 0 && !facingRight)
             {
                 Flip();
@@ -122,27 +134,43 @@ namespace NetDinamica.AppFast
             transform.localScale = theScale;
         }
 
-        /*void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter2D(Collider2D other)
         {
-           if (other.CompareTag("Player"))
+            /*if (other.CompareTag("Player"))
             {
-               PlayerInventory player = other.GetComponent<PlayerInventory>();
-                if (player == null || player.carriedItem == null)
-                   return;
+                PlayerInventory player = other.GetComponent<PlayerInventory>();
+                if (player == null || player.carriedItem == null) return;
 
-               if (items.Contains(player.carriedItem))
+                if (itemSprites.Contains(player.carriedItem))
                 {
-                 items.Remove(player.carriedItem);
-                   Debug.Log("Item given: " + player.carriedItem.name);
-
-                    // Optional: play animation, sound, or feedback
-                   player.carriedItem = null; // Remove item from player
+                    Debug.Log("Item accepted: " + player.carriedItem.name);
+                    itemSprites.Remove(player.carriedItem);
+                    ShowNeededItems(); // Update UI
+                    player.carriedItem = null;
                 }
                 else
                 {
-                    Debug.Log("This item is not needed.");
+                    Debug.Log("Item not needed.");
+                }
+            }*/
+        }
+
+        void ShowNeededItems()
+        {
+            if (itemImages == null || itemSprites == null) return;
+
+            for (int i = 0; i < itemImages.Length; i++)
+            {
+                if (i < itemSprites.Count)
+                {
+                    itemImages[i].sprite = itemSprites[i];
+                    itemImages[i].enabled = true;
+                }
+                else
+                {
+                    itemImages[i].enabled = false;
                 }
             }
-        }*/
+        }
     }
 }

@@ -21,6 +21,9 @@ public class Zombie : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         SetNewRoamTarget();
+        
+        
+        
     }
 
     void Update()
